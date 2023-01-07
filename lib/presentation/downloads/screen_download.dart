@@ -1,6 +1,4 @@
 import 'dart:math';
-
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_app/core/colors/colors.dart';
 import 'package:netflix_app/core/constants.dart';
@@ -8,127 +6,156 @@ import 'package:netflix_app/presentation/widgets/app_bar_widget.dart';
 
 class ScreenDownloads extends StatelessWidget {
   ScreenDownloads({super.key});
-  final List imageList = [
-    "https://www.themoviedb.org/t/p/w220_and_h330_face/6N346GcTUjhYa0InIiGHW61Zo3O.jpg",
-    "https://www.themoviedb.org/t/p/w220_and_h330_face/mruUFlrVKiL994y3vvQBT8R2Vnf.jpg",
-    "https://www.themoviedb.org/t/p/w220_and_h330_face/ob9YxdzRu5lfKgz0PNrlL45dorf.jpg",
+  final _widgetList = [
+    const _SmartDownloads(),
+    Section2(),
+    const Section3(),
   ];
-
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
-        appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(50),
-          child: AppBarWidget(title: "Downloads"),
+          appBar: const PreferredSize(
+            preferredSize: Size.fromHeight(50),
+            child: AppBarWidget(title: "Downloads"),
+          ),
+          body: ListView.separated(
+              padding: const EdgeInsets.all(10),
+              itemBuilder: (context, index) => _widgetList[index],
+              separatorBuilder: (context, index) => SizedBox(height: 25),
+              itemCount: _widgetList.length)),
+    );
+  }
+}
+
+class Section2 extends StatelessWidget {
+  Section2({super.key});
+  final List imageList = [
+    "https://www.themoviedb.org/t/p/w220_and_h330_face/6N346GcTUjhYa0InIiGHW61Zo3O.jpg",
+    "https://www.themoviedb.org/t/p/w220_and_h330_face/mruUFlrVKiL994y3vvQBT8R2Vnf.jpg",
+    "https://www.themoviedb.org/t/p/w220_and_h330_face/ob9YxdzRu5lfKgz0PNrlL45dorf.jpg",
+  ];
+  @override
+  Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
+    return Column(
+      children: [
+        const Text(
+          "Introducing Downloads for you",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+              color: kwhite,
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              letterSpacing: 1),
         ),
-        body: ListView(
-          children: [
-            const _SmartDownloads(),
-            const Text(
-              "Introducing Downloads for you",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  color: kwhite,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 1),
-            ),
-            kheight,
-            const Text(
-              "We will download a personalised selection of\nmovies and shows for you, so there's always something to watch on your\ndevice",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 15,
-                fontWeight: FontWeight.w700,
-                letterSpacing: 1,
+        kheight,
+        const Text(
+          "We will download a personalised selection of\nmovies and shows for you, so there's always something to watch on your\ndevice",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: Colors.grey,
+            fontSize: 15,
+            fontWeight: FontWeight.w700,
+            letterSpacing: 1,
+          ),
+        ),
+        SizedBox(
+          width: size.width * 0.8,
+          height: size.width * 0.7,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              CircleAvatar(
+                backgroundColor: Colors.grey.withOpacity(.5),
+                radius: size.width * 0.45,
               ),
-            ),
-            SizedBox(
-              width: size.width,
-              height: size.width,
-              //color: Colors.white,
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  CircleAvatar(
-                    backgroundColor: Colors.grey.withOpacity(.5),
-                    radius: size.width * 0.4,
-                  ),
-                  DownloadsImageWidget(
-                    imageList: imageList[0],
-                    margin: const EdgeInsets.only(
-                      left: 140,
-                      bottom: 50,
-                    ),
-                    angle: 20,
-                    size: Size(
-                      size.width * 0.4,
-                      size.width * 0.58,
-                    ),
-                  ),
-                  DownloadsImageWidget(
-                    imageList: imageList[1],
-                    margin: const EdgeInsets.only(
-                      right: 140,
-                      bottom: 50,
-                    ),
-                    angle: -20,
-                    size: Size(
-                      size.width * 0.4,
-                      size.width * 0.58,
-                    ),
-                  ),
-                  DownloadsImageWidget(
-                    imageList: imageList[2],
-                    margin: const EdgeInsets.only(bottom: 10),
-                    size: Size(
-                      size.width * 0.45,
-                      size.width * 0.64,
-                    ),
-                    radius: 10,
-                  )
-                ],
-              ),
-            ),
-            MaterialButton(
-              color: kButtonblue,
-              onPressed: () {},
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(7),
-              ),
-              child: const Padding(
-                padding: EdgeInsets.symmetric(vertical: 10),
-                child: Text(
-                  "Set up",
-                  style: TextStyle(
-                      color: kwhite, fontSize: 20, fontWeight: FontWeight.bold),
+              DownloadsImageWidget(
+                imageList: imageList[0],
+                margin: const EdgeInsets.only(
+                  left: 140,
+                  bottom: 50,
+                ),
+                angle: 25,
+                size: Size(
+                  size.width * 0.3,
+                  size.width * 0.5,
                 ),
               ),
-            ),
-            kheight,
-            MaterialButton(
-              color: kButtonwhit,
-              onPressed: () {},
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(7),
-              ),
-              child: const Padding(
-                padding: EdgeInsets.symmetric(vertical: 10),
-                child: Text(
-                  "See what you can download",
-                  style: TextStyle(
-                      color: kButtonblack,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
+              DownloadsImageWidget(
+                imageList: imageList[1],
+                margin: const EdgeInsets.only(
+                  right: 140,
+                  bottom: 50,
+                ),
+                angle: -25,
+                size: Size(
+                  size.width * 0.3,
+                  size.width * 0.5,
                 ),
               ),
-            )
-          ],
+              DownloadsImageWidget(
+                imageList: imageList[2],
+                margin: const EdgeInsets.only(bottom: 15),
+                size: Size(
+                  size.width * 0.35,
+                  size.width * 0.55,
+                ),
+                radius: 10,
+              )
+            ],
+          ),
         ),
-      ),
+      ],
+    );
+  }
+}
+
+class Section3 extends StatelessWidget {
+  const Section3({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        SizedBox(
+          width: double.infinity,
+          child: MaterialButton(
+            color: kButtonblue,
+            onPressed: () {},
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(7),
+            ),
+            child: const Padding(
+              padding: EdgeInsets.symmetric(vertical: 10),
+              child: Text(
+                "Set up",
+                style: TextStyle(
+                    color: kwhite, fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+        ),
+        kheight,
+        MaterialButton(
+          color: kButtonwhit,
+          onPressed: () {},
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(7),
+          ),
+          child: const Padding(
+            padding: EdgeInsets.symmetric(vertical: 10),
+            child: Text(
+              "See what you can download",
+              style: TextStyle(
+                  color: kButtonblack,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+        )
+      ],
     );
   }
 }
