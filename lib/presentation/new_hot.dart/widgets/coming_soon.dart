@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_app/core/colors/colors.dart';
+
 import 'package:netflix_app/core/constants.dart';
 import 'package:netflix_app/presentation/home/widgets/custom_button.dart';
 import 'package:netflix_app/presentation/new_hot.dart/widgets/video_widget.dart';

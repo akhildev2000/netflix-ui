@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'package:netflix_app/core/constants.dart';
 import 'package:netflix_app/presentation/home/widgets/background_card.dart';
@@ -49,7 +48,7 @@ class ScreenHome extends StatelessWidget {
                   ),
                   scrollNotifier.value == true
                       ? AnimatedContainer(
-                          duration: Duration(milliseconds: 1000),
+                          duration: const Duration(milliseconds: 1000),
                           width: double.infinity,
                           height: 80,
                           color: Colors.black.withOpacity(0.3),
