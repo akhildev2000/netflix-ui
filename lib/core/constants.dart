@@ -9,3 +9,4 @@ const mainImage =
     "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4nOjXXYW67BEdSdJYMKdXySSLn7.jpg";
 TextStyle khometext =
     GoogleFonts.merriweatherSans(fontSize: 16, fontWeight: FontWeight.bold);
+final BorderRadius kradius30 = BorderRadius.circular(30);
