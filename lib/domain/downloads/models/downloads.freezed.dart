@@ -85,7 +85,7 @@ class __$$_DownloadsCopyWithImpl<$Res>
     Object? posterPath = freezed,
   }) {
     return _then(_$_Downloads(
-      freezed == posterPath
+      posterPath: freezed == posterPath
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -96,7 +96,7 @@ class __$$_DownloadsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Downloads implements _Downloads {
-  const _$_Downloads(@JsonKey(name: "poster_path") this.posterPath);
+  const _$_Downloads({@JsonKey(name: "poster_path") required this.posterPath});
 
   factory _$_Downloads.fromJson(Map<String, dynamic> json) =>
       _$$_DownloadsFromJson(json);
@@ -139,7 +139,8 @@ class _$_Downloads implements _Downloads {
 
 abstract class _Downloads implements Downloads {
   const factory _Downloads(
-      @JsonKey(name: "poster_path") final String? posterPath) = _$_Downloads;
+          {@JsonKey(name: "poster_path") required final String? posterPath}) =
+      _$_Downloads;
 
   factory _Downloads.fromJson(Map<String, dynamic> json) =
       _$_Downloads.fromJson;
