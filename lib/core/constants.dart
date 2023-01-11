@@ -10,3 +10,4 @@ const mainImage =
 TextStyle khometext =
     GoogleFonts.merriweatherSans(fontSize: 16, fontWeight: FontWeight.bold);
 final BorderRadius kradius30 = BorderRadius.circular(30);
+const imageAppendUrl = "https://image.tmdb.org/t/p/w500";
