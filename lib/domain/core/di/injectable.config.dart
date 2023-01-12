@@ -9,7 +9,7 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
 import '../../../application/downloads/downloads_bloc.dart' as _i7;
-import '../../../application/downloads/search/search_bloc.dart' as _i8;
+import '../../../application/search/search_bloc.dart' as _i8;
 import '../../../infrastructure/downloads/downloads_repository.dart' as _i4;
 import '../../../infrastructure/search/search_implementation.dart' as _i6;
 import '../../downloads/i_downloads_repo.dart' as _i3;
